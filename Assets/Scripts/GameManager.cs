@@ -9,19 +9,19 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	//references to all the required game objects
-	[SerializeField] private Text gameInfoText;				//Blinking text at center of the screen
-	[SerializeField] private Text player1ScoreText;
-	[SerializeField] private Text player2ScoreText;
+	[SerializeField] private Text _gameInfoText;				//Blinking text at center of the screen
+	[SerializeField] private Text _player1ScoreText;
+	[SerializeField] private Text _player2ScoreText;
 
-	[SerializeField] private Puck puck;
-	[SerializeField] private Paddle player1;
-	[SerializeField] private Paddle player2;
+	[SerializeField] private Puck _puck;
+	[SerializeField] private Paddle _player1;
+	[SerializeField] private Paddle _player2;
 
 	//track some internal administration for the game
-	private int whoWon = 0;
-	private int p1Score = 0;
-	private int p2Score = 0;
-	private bool inPlay = false;
+	private int _whoWon = 0;
+	private int _p1Score = 0;
+	private int _p2Score = 0;
+	private bool _inPlay = false;
 
 	private void Start()
 	{
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 		setGameInfoText("Press space to start");
 		AudioListener.pause = true;
 		setScore(0, 0);
-		inPlay = false;
+		_inPlay = false;
 		
 		//enables Update method to be called 
 		enabled = true;
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
 		setGameInfoText(null);
 		AudioListener.pause = false;
 		setScore(0, 0);
-		puck.Reset();
-		inPlay = true;
+		_puck.Reset();
+		_inPlay = true;
 
 		//disables Update method to be called
 		enabled = false;
@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour
 	 */
 	private void setGameInfoText(string infoText)
 	{
-		gameInfoText.text = infoText;
+		_gameInfoText.text = infoText;
 		
 		if (string.IsNullOrEmpty(infoText))
 		{
-			gameInfoText.enabled = false;
+			_gameInfoText.enabled = false;
 			StopAllCoroutines();
 		}
 		else
@@ -81,9 +81,9 @@ public class GameManager : MonoBehaviour
 	{
 		while (true)
 		{
-			gameInfoText.enabled = true;
+			_gameInfoText.enabled = true;
 			yield return new WaitForSeconds(1f);
-			gameInfoText.enabled = false;
+			_gameInfoText.enabled = false;
 			yield return new WaitForSeconds(1f);
 		}
 	}
@@ -94,30 +94,30 @@ public class GameManager : MonoBehaviour
 	 */
 	private void setScore(int p1NewScore, int p2NewScore)
 	{
-		p1Score = p1NewScore;
-		p2Score = p2NewScore;
+		_p1Score = p1NewScore;
+		_p2Score = p2NewScore;
 
-		player1ScoreText.text = "" + p1Score;
-		player2ScoreText.text = "" + p2Score;
+		_player1ScoreText.text = "" + _p1Score;
+		_player2ScoreText.text = "" + _p2Score;
 
-		if (p1Score > 9 || p2Score > 9)
+		if (_p1Score > 9 || _p2Score > 9)
 		{
-			whoWon = p1Score > p2Score ? 1 : 2;
+			_whoWon = _p1Score > _p2Score ? 1 : 2;
 			enterGameOverState();
 		}
 		else
 		{
-			puck.Reset();
-			player1.Reset();
-			player2.Reset();
+			_puck.Reset();
+			_player1.Reset();
+			_player2.Reset();
 		}
 	}
 
 	private void enterGameOverState()
 	{
-		setGameInfoText($"      Game over - Player {whoWon} won\n   Press space   to start over");
+		setGameInfoText($"      Game over - Player {_whoWon} won\n   Press space   to start over");
 		AudioListener.pause = true;
-		inPlay = false;
+		_inPlay = false;
 		enabled = true;
 	}
 
@@ -126,17 +126,17 @@ public class GameManager : MonoBehaviour
 	 */
 	public void OnGoalHit (Obstacle.ObstacleId playerWhoScored)
 	{
-		if (!inPlay) return;
+		if (!_inPlay) return;
 
 		Debug.Log($"{playerWhoScored} scored !");
 
 		if (playerWhoScored == Obstacle.ObstacleId.Player1)
 		{
-			setScore(p1Score + 1, p2Score);
+			setScore(_p1Score + 1, _p2Score);
 		} 
 		else
 		{
-			setScore(p1Score, p2Score + 1);
+			setScore(_p1Score, _p2Score + 1);
 		}
 	}
 

@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b180dcefa0575e42ace287e184c01bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  OnObstacleHit:
+  _id: 0
+  _onObstacleHit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 472920296}
@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b180dcefa0575e42ace287e184c01bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  OnObstacleHit:
+  _id: 0
+  _onObstacleHit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 472920296}
@@ -783,8 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed36c16a3453aa74187506b41d87d126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 15
-  spawnRange: 14
+  _maxSpeed: 15
+  _spawnRange: 14
 --- !u!54 &422716585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -874,12 +874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4136971dbdc92fa47bc96fbe1c474d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameInfoText: {fileID: 531092751}
-  player1ScoreText: {fileID: 332553929}
-  player2ScoreText: {fileID: 1321277058}
-  puck: {fileID: 422716584}
-  player1: {fileID: 259715465}
-  player2: {fileID: 165585585}
+  _gameInfoText: {fileID: 531092751}
+  _player1ScoreText: {fileID: 332553929}
+  _player2ScoreText: {fileID: 1321277058}
+  _puck: {fileID: 422716584}
+  _player1: {fileID: 259715465}
+  _player2: {fileID: 165585585}
 --- !u!81 &472920297
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1624,8 +1624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b180dcefa0575e42ace287e184c01bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  OnObstacleHit:
+  _id: 2
+  _onObstacleHit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 472920296}
@@ -1828,7 +1828,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -1836,7 +1844,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472920296}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 472920296}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -1848,11 +1864,27 @@ PrefabInstance:
       value: OnPlayerHit
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -1868,11 +1900,23 @@ PrefabInstance:
       value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _range
+      value: 14.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: downKey
       value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: axisName
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _axisName
       value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -2133,8 +2177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b180dcefa0575e42ace287e184c01bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  OnObstacleHit:
+  _id: 1
+  _onObstacleHit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 472920296}
@@ -2368,7 +2412,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -2376,7 +2428,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472920296}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 472920296}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -2388,11 +2448,27 @@ PrefabInstance:
       value: OnPlayerHit
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: OnObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997790738884594004, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _onObstacleHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
@@ -2408,11 +2484,23 @@ PrefabInstance:
       value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _range
+      value: 14.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: downKey
       value: 97
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: axisName
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
+      propertyPath: _axisName
       value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

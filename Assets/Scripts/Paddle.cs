@@ -25,17 +25,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Paddle : MonoBehaviour
 {
-	[SerializeField] private string axisName;
-	[SerializeField] private float speed;
-	[SerializeField] private float range;
+	[SerializeField] private string _axisName;
+	[SerializeField] private float _speed;
+	[SerializeField] private float _range;
 
-	private Rigidbody rb;
-	private float input;
+	private Rigidbody _rb;
+	private float _input;
 
 	private void Awake()
 	{
-		rb = GetComponent<Rigidbody>();
-		rb.isKinematic = true;
+		_rb = GetComponent<Rigidbody>();
+		_rb.isKinematic = true;
 	}
 
 	private void Update()
@@ -45,7 +45,7 @@ public class Paddle : MonoBehaviour
 		//- modify rigidbodies in FixedUpdate
 		//- do your other stuff in Update (e.g. read input)
 		//And yes that can get very clumsy/unwieldy, and no there is no way around that, and yes you are going to google for that anyway
-		input = Input.GetAxis(axisName);
+		_input = Input.GetAxis(_axisName);
 	}
 
 	private void FixedUpdate()
@@ -60,8 +60,8 @@ public class Paddle : MonoBehaviour
 		//for that, since their values are equal here.
 
 		Vector3 newPosition = transform.position;
-		newPosition.y = Mathf.Clamp(newPosition.y + speed * input * Time.deltaTime, -range, range);
-		rb.MovePosition(newPosition);
+		newPosition.y = Mathf.Clamp(newPosition.y + _speed * _input * Time.deltaTime, -_range, _range);
+		_rb.MovePosition(newPosition);
 	}
 
 	private void OnCollisionEnter(Collision collision)

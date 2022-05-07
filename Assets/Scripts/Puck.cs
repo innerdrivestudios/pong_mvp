@@ -9,14 +9,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Puck : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed = 10;
-    [SerializeField] private float spawnRange = 14;
+    [SerializeField] private float _maxSpeed = 10;
+    [SerializeField] private float _spawnRange = 14;
 
-    private Rigidbody rb;
+    private Rigidbody _rb;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         randomizeVelocity();        
     }
 
@@ -31,18 +31,18 @@ public class Puck : MonoBehaviour
 
         velocity.Normalize();
 
-        rb.velocity = velocity * maxSpeed;
+        _rb.velocity = velocity * _maxSpeed;
     }
 
     private void FixedUpdate()
 	{
         //make sure our puck speed never changes
-        rb.velocity = rb.velocity.normalized * maxSpeed;
+        _rb.velocity = _rb.velocity.normalized * _maxSpeed;
 	}
 
 	public void Reset()
 	{
-        rb.position = new Vector3(0, 0, 0) + Vector3.up * Random.Range(-spawnRange, spawnRange);
+        _rb.position = new Vector3(0, 0, 0) + Vector3.up * Random.Range(-_spawnRange, _spawnRange);
         randomizeVelocity();
 	}
 
