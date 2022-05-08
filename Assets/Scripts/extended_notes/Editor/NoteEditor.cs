@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using UnityEditor;
 
 /**
@@ -18,7 +17,6 @@ public class NoteEditor : Editor {
         new Color(1, 0.5f, 0.2f),
         new Color(1, 0.25f, 0.1f),
         new Color(1, 0, 0)
-
     };
 
     private static GUIStyle[] _noteStyles = null;
@@ -52,20 +50,26 @@ public class NoteEditor : Editor {
         }
     }
 
-    private Note _note;
+    SerializedProperty noteType;
+    SerializedProperty noteText;
 
     private void OnEnable ()
 	{
         generateBackgroundTexturesForDescriptions();
-        _note = target as Note;
+
+        noteType = serializedObject.FindProperty("noteType");
+        noteText = serializedObject.FindProperty("noteText");
     }
 
     public override void OnInspectorGUI()
     {
-        _note.noteType = EditorGUILayout.Popup(_note.noteType, _descriptions);
-        _note.noteText = EditorGUILayout.TextArea(_note.noteText, _noteStyles[_note.noteType], TEXT_AREA_OPTIONS);
-    }
+        serializedObject.Update();
 
+        noteType.intValue = EditorGUILayout.Popup(noteType.intValue, _descriptions);
+        noteText.stringValue = EditorGUILayout.TextArea(noteText.stringValue, _noteStyles[noteType.intValue], TEXT_AREA_OPTIONS);
+    
+        serializedObject.ApplyModifiedProperties();
+    }
 
 }
 
