@@ -17,11 +17,18 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private Paddle _player1;
 	[SerializeField] private Paddle _player2;
 
+	[SerializeField] private float _fixedTimeStep = 1 / 60.0f;
+
 	//track some internal administration for the game
 	private int _whoWon = 0;
 	private int _p1Score = 0;
 	private int _p2Score = 0;
 	private bool _inPlay = false;
+
+	private void Awake()
+	{
+		Time.fixedDeltaTime = _fixedTimeStep;
+	}
 
 	private void Start()
 	{
@@ -124,19 +131,19 @@ public class GameManager : MonoBehaviour
 	/** 
 	 * Called by one of the goal gameobjects
 	 */
-	public void OnGoalHit (Obstacle.ObstacleId playerWhoScored)
+	public void OnGoalHit (Obstacle.ObstacleId playerGoalHit)
 	{
+		Debug.Log($"{playerGoalHit} goal hit!"); 
+		
 		if (!_inPlay) return;
 
-		Debug.Log($"{playerWhoScored} scored !");
-
-		if (playerWhoScored == Obstacle.ObstacleId.Player1)
+		if (playerGoalHit == Obstacle.ObstacleId.Player1)
 		{
-			setScore(_p1Score + 1, _p2Score);
+			setScore(_p1Score, _p2Score + 1);
 		} 
 		else
 		{
-			setScore(_p1Score, _p2Score + 1);
+			setScore(_p1Score + 1, _p2Score);
 		}
 	}
 
