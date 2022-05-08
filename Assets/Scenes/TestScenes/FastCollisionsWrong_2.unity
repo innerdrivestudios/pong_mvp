@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed36c16a3453aa74187506b41d87d126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 15
+  _maxSpeed: 1000
   _spawnRange: 14
 --- !u!54 &422716585
 Rigidbody:
@@ -800,7 +800,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 120
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &422716586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,6 +983,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531092749}
   m_CullTransparentMesh: 1
+--- !u!1 &542586740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542586742}
+  - component: {fileID: 542586741}
+  m_Layer: 0
+  m_Name: Documentation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &542586741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542586740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3637b21aff9cce745921648da2522daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteText: 'This scene demonstrates how a high speed Puck tunnels through kinematic
+    paddles, but is correctly reflected on static boundaries if the Collision Detection
+    Mode is set to "Continuous"
+
+
+    For demonstration/testing purposes the paddles
+    have been scaled up to cover the whole playing field.'
+  noteType: 0
+--- !u!4 &542586742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542586740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622275112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137042829189150179, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5137042829189150179, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1906,7 +1958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: _range
-      value: 14.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: _speed
@@ -2370,7 +2422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137042829189150179, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5137042829189150179, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2494,7 +2546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: _range
-      value: 14.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826978639884573306, guid: 91188643d6bc64d4b9c567cb91c88a15, type: 3}
       propertyPath: _speed
